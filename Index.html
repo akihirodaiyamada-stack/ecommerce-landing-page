@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jhanval Modas — Moda feminina elegante em São Paulo. Coleções Linhao, Alfaiataria, Louis Twill, Body e Malha.">
+  <title>Jhanval Modas</title>
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,600;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --hero-bg-image: url("portada.png");
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:#FFFFFF;
+      color: #5f4444;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 85px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      background: #FFAEA7;
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, .05);
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: #5f4444;
+      text-transform: uppercase;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      z-index: 1001;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: #5f4444;
+      transition: .3s;
+    }
+
+    .menu-toggle.open span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .menu {
+      display: flex;
+      gap: 30px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #5f4444;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: .3s;
+    }
+
+    .menu a:hover {
+      opacity: .6;
+    }
+
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .4);
+      z-index: 998;
+    }
+
+    .menu-overlay.open {
+      display: block;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background: var(--hero-bg-image) center/cover no-repeat;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, .2);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, .4);
+      padding: 60px 50px;
+      border-radius: 30px;
+      max-width: 700px;
+      margin: 0 20px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, .15);
+      animation: heroContentFadeIn 1.2s ease-out 0.5s forwards;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 8vw, 90px);
+      font-weight: 600;
+      letter-spacing: 8px;
+      color: #5f4444;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      margin-top: 20px;
+      font-size: 20px;
+      line-height: 1.8;
+      color: #5f4444;
+      font-weight: 300;
+    }
+
+    @keyframes heroContentFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 15px 40px;
+      background: #5f4444;
+      color: #FFF;
+      text-decoration: none;
+      border-radius: 40px;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* SEÇÕES */
+    .section {
+      padding: 120px 10%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 70px;
+      flex-wrap: wrap;
+    }
+
+    .reverse {
+      flex-direction: row-reverse;
+    }
+
+    .section > img {
+      width: 500px;
+      max-width: 100%;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+      transition: .3s;
+    }
+
+    .section > img:hover {
+      transform: scale(1.02);
+    }
+
+    .text {
+      max-width: 500px;
+    }
+
+    .text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .text p {
+      font-size: 18px;
+      line-height: 1.9;
+    }
+
+    .acoes-colecao {
+      margin-top: 25px;
+    }
+
+    .specs-btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 14px 24px;
+      background: rgba(255, 255, 255, .55);
+      border: 1px solid rgba(95, 68, 68, .2);
+      border-radius: 40px;
+      color: #5f4444;
+      font-family: inherit;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: .35s ease;
+    }
+
+    .specs-btn:hover,
+    .specs-btn.aberto {
+      background: rgba(255, 255, 255, .9);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, .08);
+    }
+
+    .specs-icone {
+      font-size: 22px;
+      font-weight: 300;
+      line-height: 1;
+      transition: transform .35s ease;
+    }
+
+    .specs-btn.aberto .specs-icone {
+      transform: rotate(45deg);
+    }
+
+    .specs-panel {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height .55s cubic-bezier(0.4, 0, 0.2, 1), opacity .4s ease, margin .4s ease;
+      margin-top: 0;
+    }
+
+    .specs-panel.aberto {
+      opacity: 1;
+      margin-top: 12px;
+    }
+
+    .specs-conteudo {
+      padding: 20px 24px;
+      background: rgba(255, 255, 255, .6);
+      border-radius: 20px;
+      border: 1px solid rgba(95, 68, 68, .12);
+    }
+
+    .specs-conteudo ul {
+      list-style: none;
+    }
+
+    .specs-conteudo li {
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(95, 68, 68, .1);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .specs-conteudo li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .specs-conteudo li:first-child {
+      padding-top: 0;
+    }
+
+    .specs-conteudo strong {
+      font-weight: 500;
+    }
+
+    .specs-detalhes {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(95, 68, 68, .15);
+    }
+
+    .specs-detalhes h4 {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .specs-detalhes p {
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .product-subtitle {
+      font-size: 16px;
+      font-weight: 400;
+      color: #5f4444;
+      margin-bottom: 15px;
+      font-style: italic;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 14px 30px;
+      background: #5f4444;
+      color: white;
+      text-decoration: none;
+      border-radius: 40px;
+      transition: .3s;
+    }
+
+    .whatsapp-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* CARRUSEL LINHAO */
+    .carousel-wrapper {
+      width: 500px;
+      max-width: 100%;
+    }
+
+    .carousel-linhao {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+      cursor: grab;
+      user-select: none;
+    }
+
+    .carousel-linhao.dragging {
+      cursor: grabbing;
+    }
+
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      transition: transform 1.4s cubic-bezier(0.45, 0, 0.25, 1);
+      will-change: transform;
+    }
+
+    .carousel-track.sem-transicao {
+      transition: none;
+    }
+
+    .linhao-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    .carousel-seta {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .85);
+      color: #5f4444;
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 2;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+      transition: .3s;
+      line-height: 1;
+    }
+
+    .carousel-seta:hover {
+      background: white;
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .carousel-seta.prev {
+      left: 12px;
+    }
+
+    .carousel-seta.next {
+      right: 12px;
+    }
+
+    .cores-linhao {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .cores-linhao p {
+      font-size: 12px;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .paleta {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .paleta span {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+      cursor: help;
+    }
+
+    .cores-toggle {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 10px;
+      font-size: 11px;
+      color: #5f4444;
+      transition: .3s;
+    }
+
+    .cores-toggle:hover {
+      color: #3d2d2d;
+    }
+
+    .cores-toggle::after {
+      content: '▼';
+      font-size: 10px;
+      transition: transform .3s;
+    }
+
+    .cores-toggle.ativo::after {
+      transform: rotate(180deg);
+    }
+
+    .cores-detalhes {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease-out;
+      margin-top: 0;
+    }
+
+    .cores-detalhes.ativo {
+      max-height: 200px;
+      margin-top: 15px;
+    }
+
+    .cores-detalhes ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .cores-detalhes li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #5f4444;
+    }
+
+    .cores-detalhes .cor-amostra {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+    }
+
+    .indicadores {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .indicadores span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, .3);
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .indicadores span:hover {
+      background: rgba(95, 68, 68, .6);
+    }
+
+    .indicadores .ativo {
+      background: #5f4444;
+    }
+
+    /* SOBRE NÓS */
+    .sobre {
+      padding: 120px 10%;
+      text-align: center;
+      background: #d68d89;
+    }
+
+    .sobre h2 {
+      font-family: 'Bodoni Moda', serif;
+      font-style: italic;
+      font-size: clamp(42px, 6vw, 70px);
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+
+    .sobre p {
+      max-width: 900px;
+      margin: auto;
+      line-height: 2;
+      font-size: 18px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+    }
+
+    /* REDES FLOTANTES */
+    .social {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
+    }
+
+    .social a {
+      width: 65px;
+      height: 65px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
+      transition: .3s;
+    }
+
+    .social a:hover {
+      transform: scale(1.1);
+    }
+
+    .social img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+    }
+
+    /* VOLVER ARRIBA */
+    .topo-btn {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      width: 50px;
+      height: 50px;
+      border: none;
+      border-radius: 50%;
+      background: #5f4444;
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
+      opacity: 0;
+      visibility: hidden;
+      transition: .3s;
+      z-index: 999;
+    }
+
+    .topo-btn.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .topo-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #d68d89;
+      padding: 70px 20px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    footer h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 50px;
+      font-weight: 400;
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      line-height: 2;
+    }
+
+    footer a {
+      color: #5f4444;
+      text-decoration: none;
+      transition: .3s;
+    }
+
+    footer a:hover {
+      opacity: .7;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .footer-location {
+      margin-top: 25px;
+      padding: 20px;
+      background: rgba(255, 255, 255, .2);
+      border-radius: 15px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer-location p {
+      margin: 8px 0;
+      font-size: 15px;
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 900px) {
+      header {
+        padding: 0 20px;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 280px;
+        height: 100vh;
+        background: rgba(255, 255, 255, .97);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        transform: translateX(100%);
+        transition: transform .3s ease;
+        z-index: 1000;
+        box-shadow: -5px 0 30px rgba(0, 0, 0, .1);
+      }
+
+      .menu.open {
+        transform: translateX(0);
+      }
+
+      .hero-content {
+        padding: 30px 25px;
+      }
+
+      .section {
+        padding: 80px 5%;
+        gap: 40px;
+      }
+
+      .sobre {
+        padding: 80px 5%;
+      }
+
+      .social a {
+        width: 50px;
+        height: 50px;
+      }
+
+      .social img {
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+    /* INTRO OVERLAY */
+    .intro-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #FFB2AE 0%, #d68d89 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 1.5s ease-out, visibility 1.5s ease-out;
+    }
+
+    .intro-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .intro-content {
+      text-align: center;
+      animation: fadeInUp 1.5s ease-out;
+    }
+
+    .intro-logo {
+      width: 150px;
+      height: auto;
+      margin-bottom: 30px;
+      animation: scaleIn 1.5s ease-out, pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    /* Ocultar contenido principal durante intro */
+    body.intro-active > *:not(.intro-overlay) {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    body.intro-active > *:not(.intro-overlay).visible {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 1s ease-in;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Overlay de intro con logo -->
+  <div id="intro-overlay" class="intro-overlay">
+    <div class="intro-content">
+      <img src="Logo.png" alt="Jhanval Modas" class="intro-logo">
+    </div>
+  </div>
+
+  <header>
+    <div class="logo">
+      <a href="#">
+        <img src="Logo.png" alt="Jhanval Modas — Logo">
+      </a>
+    </div>
+    <div class="brand-name">JHANVAL MODAS</div>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="menu">
+      <a href="#linhao">Linhao</a>
+      <a href="#alfaiataria">Alfaiataria</a>
+      <a href="#louis">Louis Twill</a>
+      <a href="#body">Body</a>
+      <a href="#malha">Malha</a>
+      <a href="#sobre">Sobre Nós</a>
+    </nav>
+  </header>
+
+  <div class="menu-overlay"></div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>JHANVAL MODAS</h1>
+      <p>Elegância, sofisticação e estilo para mulheres que valorizam cada detalhe.</p>
+      <a href="#linhao" class="btn">VER COLEÇÃO</a>
+    </div>
+  </section>
+
+  <section class="section" id="linhao">
+    <div class="carousel-wrapper">
+      <div class="carousel-linhao" id="carouselLinhao">
+        <div class="carousel-track" id="carouselTrack">
+          <img src="linhao1.jpg" class="linhao-slide" alt="Coleção Linhao — foto 1" draggable="false">
+          <img src="linhao2.jpg" class="linhao-slide" alt="Coleção Linhao — foto 2" loading="lazy" draggable="false">
+          <img src="linhao3.jpg" class="linhao-slide" alt="Coleção Linhao — foto 3" draggable="false">
+          <img src="linhao4.jpg" class="linhao-slide" alt="Coleção Linhao — foto 4" loading="lazy" draggable="false">
+        </div>
+        <button class="carousel-seta prev" type="button" aria-label="Foto anterior">‹</button>
+        <button class="carousel-seta next" type="button" aria-label="Próxima foto">›</button>
+      </div>
+      <div class="cores-linhao">
+        <p>CORES DISPONÍVEIS</p>
+        <div class="paleta">
+          <span style="background:#8B4513;" title="Marrom"></span>
+          <span style="background:black;" title="Preto"></span>
+          <span style="background:#6F4E37;" title="Café Toddy"></span>
+          <span style="background:#808080;" title="Cinza"></span>
+          <span style="background:#d2b48c;" title="Bege"></span>
+          <span style="background:#000080;" title="Azul Marinho"></span>
+          <span style="background:#456E6E;" title="Verde Menta"></span>
+        </div>
+        <div class="cores-toggle">Ver mais cores</div>
+        <div class="cores-detalhes">
+          <ul>
+            <li><span class="cor-amostra" style="background:#8B4513;"></span>Marrom</li>
+            <li><span class="cor-amostra" style="background:black;"></span>Preto</li>
+            <li><span class="cor-amostra" style="background:#6F4E37;"></span>Café Toddy</li>
+            <li><span class="cor-amostra" style="background:#808080;"></span>Cinza</li>
+            <li><span class="cor-amostra" style="background:#d2b48c;"></span>Bege</li>
+            <li><span class="cor-amostra" style="background:#000080;"></span>Azul Marinho</li>
+            <li><span class="cor-amostra" style="background:#456E6E;"></span>Verde Menta</li>
+          </ul>
+        </div>
+        <div class="indicadores" id="indicadores">
+          <span class="ativo" role="button" aria-label="Foto 1"></span>
+          <span role="button" aria-label="Foto 2"></span>
+          <span role="button" aria-label="Foto 3"></span>
+          <span role="button" aria-label="Foto 4"></span>
+        </div>
+      </div>
+    </div>
+    <div class="text">
+      <h2>Calca Anna</h2>
+      <p class="product-subtitle">Linhao</p>
+      <p>Leve, elegante e versátil. A coleção Linhao foi criada para mulheres que valorizam conforto e sofisticação em cada detalhe. Seu caimento proporciona liberdade de movimento sem abrir mão da elegância.</p>
+      <div class="acoes-colecao">
+        <button class="specs-btn" type="button" aria-expanded="false">
+          <span>Especificações</span>
+          <span class="specs-icone">+</span>
+        </button>
+        <div class="specs-panel">
+          <div class="specs-conteudo">
+            <ul>
+              <li><strong>Composição:</strong> 100% Poliester</li>
+              <li><strong>Tecido:</strong> Leve, fresco e respirável</li>
+              <li><strong>Caimento:</strong> Solto e fluido</li>
+              <li><strong>Tamanhos:</strong> P 38, M 40, G 42, GG 44/46</li>
+              <li><strong>Cores:</strong> Marrom, Preto, Café Toddy, Cinza, Bege, Azul Marinho, Verde Menta</li>
+            </ul>
+            <div class="specs-detalhes">
+              <h4>Detalhes da peça</h4>
+              <p>Detalhe bolsos no lateral, cintura alta, bragueta funcional com ziper da mesma cor.</p>
+            </div>
+          </div>
+        </div>
+        <a class="whatsapp-btn" href="https://wa.me/5511962556641?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20sobre%20a%20cole%C3%A7%C3%A3o%20Linhao">Consultar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reverse" id="alfaiataria">
+    <div class="carousel-wrapper">
+      <div class="carousel-linhao" id="carouselAlfaiataria">
+        <div class="carousel-track" id="carouselTrackAlfaiataria">
+          <img src="alfaiteria1.jpg" class="linhao-slide" alt="Coleção Alfaiataria Premium — foto 1" draggable="false">
+          <img src="alfaiteria2.jpg" class="linhao-slide" alt="Coleção Alfaiataria Premium — foto 2" loading="lazy" draggable="false">
+          <img src="alfaiteria3.jpg" class="linhao-slide" alt="Coleção Alfaiataria Premium — foto 3" loading="lazy" draggable="false">
+        </div>
+        <button class="carousel-seta prev" type="button" aria-label="Foto anterior">‹</button>
+        <button class="carousel-seta next" type="button" aria-label="Próxima foto">›</button>
+      </div>
+      <div class="cores-linhao">
+        <p>CORES DISPONÍVEIS</p>
+        <div class="paleta">
+          <span style="background:#8B4513;" title="Marrom"></span>
+          <span style="background:black;" title="Preto"></span>
+          <span style="background:#d6bb97;" title="Bege"></span>
+          <span style="background:#0D0847;" title="Azul Marinho"></span>
+          <span style="background:#b7acc7;" title="Cinza"></span>
+          <span style="background:#C4A484;" title="Bege Caramelo"></span>
+          <span style="background:#6b0814;" title="Vinho"></span>
+        </div>
+        <div class="cores-toggle">Ver mais cores</div>
+        <div class="cores-detalhes">
+          <ul>
+            <li><span class="cor-amostra" style="background:#8B4513;"></span>Marrom</li>
+            <li><span class="cor-amostra" style="background:black;"></span>Preto</li>
+            <li><span class="cor-amostra" style="background:#d6bb97;"></span>Bege</li>
+            <li><span class="cor-amostra" style="background:#0D0847;"></span>Azul Marinho</li>
+            <li><span class="cor-amostra" style="background:#b7acc7;"></span>Cinza</li>
+            <li><span class="cor-amostra" style="background:#C4A484;"></span>Bege Caramelo</li>
+            <li><span class="cor-amostra" style="background:#6b0814;"></span>Vinho</li>
+          </ul>
+        </div>
+        <div class="indicadores" id="indicadoresAlfaiataria">
+          <span class="ativo" role="button" aria-label="Foto 1"></span>
+          <span role="button" aria-label="Foto 2"></span>
+          <span role="button" aria-label="Foto 3"></span>
+        </div>
+      </div>
+    </div>
+    <div class="text">
+      <h2>Calca Anna</h2>
+      <p class="product-subtitle">Alfaiataria Premium</p>
+      <p>Uma proposta refinada para quem busca presença e estilo. Com modelagem cuidadosamente elaborada e acabamento premium, esta coleção combina elegância atemporal com conforto.</p>
+      <div class="acoes-colecao">
+        <button class="specs-btn" type="button" aria-expanded="false">
+          <span>Especificações</span>
+          <span class="specs-icone">+</span>
+        </button>
+        <div class="specs-panel">
+          <div class="specs-conteudo">
+            <ul>
+              <li><strong>Composição:</strong> 96% Poliéster, 4% Elastano</li>
+              <li><strong>Tecido:</strong> Estruturado com acabamento alfaiataria</li>
+              <li><strong>Caimento:</strong> Estruturado e elegante</li>
+              <li><strong>Tamanhos:</strong> P 38, M 40, G 42, GG 44/46</li>
+              <li><strong>Cores:</strong> Marrom, Preto, Bege, Azul Marinho, Cinza, Bege Caramelo, Vinho</li>
+            </ul>
+            <div class="specs-detalhes">
+              <h4>Detalhes da peça</h4>
+              <p>Detalhe bolsos no lateral, cintura alta, zíper funcional da mesma cor e bragueta.</p>
+            </div>
+          </div>
+        </div>
+        <a class="whatsapp-btn" href="https://wa.me/5511962556641?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20sobre%20a%20cole%C3%A7%C3%A3o%20Alfaiataria%20Premium">Consultar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="louis">
+    <div class="carousel-wrapper">
+      <div class="carousel-linhao" id="carouselLouis">
+        <div class="carousel-track" id="carouselTrackLouis">
+          <img src="louistwill1.jpg" class="linhao-slide" alt="Coleção Louis Twill — foto 1" draggable="false">
+          <img src="louistwill2.jpg" class="linhao-slide" alt="Coleção Louis Twill — foto 2" loading="lazy" draggable="false">
+          <img src="louistwill3.jpg" class="linhao-slide" alt="Coleção Louis Twill — foto 3" loading="lazy" draggable="false">
+        </div>
+        <button class="carousel-seta prev" type="button" aria-label="Foto anterior">‹</button>
+        <button class="carousel-seta next" type="button" aria-label="Próxima foto">›</button>
+      </div>
+      <div class="cores-linhao">
+        <p>CORES DISPONÍVEIS</p>
+        <div class="paleta">
+          <span style="background:#90EE90;" title="Verde Claro"></span>
+          <span style="background:#87CEEB;" title="Celeste"></span>
+        </div>
+        <div class="cores-toggle">Ver mais cores</div>
+        <div class="cores-detalhes">
+          <ul>
+            <li><span class="cor-amostra" style="background:#90EE90;"></span>Verde Claro</li>
+            <li><span class="cor-amostra" style="background:#87CEEB;"></span>Celeste</li>
+          </ul>
+        </div>
+        <div class="indicadores" id="indicadoresLouis">
+          <span class="ativo" role="button" aria-label="Foto 1"></span>
+          <span role="button" aria-label="Foto 2"></span>
+          <span role="button" aria-label="Foto 3"></span>
+        </div>
+      </div>
+    </div>
+    <div class="text">
+      <h2>Calca Jade</h2>
+      <p class="product-subtitle">Louis Twill</p>
+      <p>Textura sofisticada, toque agradável e excelente caimento. Louis Twill representa o equilíbrio perfeito entre modernidade e exclusividade.</p>
+      <div class="acoes-colecao">
+        <button class="specs-btn" type="button" aria-expanded="false">
+          <span>Especificações</span>
+          <span class="specs-icone">+</span>
+        </button>
+        <div class="specs-panel">
+          <div class="specs-conteudo">
+            <ul>
+              <li><strong>Composição:</strong> Twill de algodão premium</li>
+              <li><strong>Tecido:</strong> Trama diagonal sofisticada</li>
+              <li><strong>Caimento:</strong> Moderno e estruturado</li>
+              <li><strong>Tamanhos:</strong> P 38, M 40, G 42, GG 44/46</li>
+              <li><strong>Cores:</strong> Verde Claro, Celeste</li>
+            </ul>
+            <div class="specs-detalhes">
+              <h4>Detalhes da peça</h4>
+              <p>Detalhe bolsos no lateral, cintura alta, zíper funcional da mesma cor e bragueta.</p>
+            </div>
+          </div>
+        </div>
+        <a class="whatsapp-btn" href="https://wa.me/5511962556641?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20sobre%20a%20cole%C3%A7%C3%A3o%20Louis%20Twill">Consultar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reverse" id="boddy">
+    <div class="carousel-wrapper">
+      <div class="carousel-linhao" id="carouselBoddy">
+        <div class="carousel-track" id="carouselTrackBoddy">
+          <img src="boddy1.jpg" class="linhao-slide" alt="Coleção Boddy — foto 1" draggable="false">
+        </div>
+        <button class="carousel-seta prev" type="button" aria-label="Foto anterior">‹</button>
+        <button class="carousel-seta next" type="button" aria-label="Próxima foto">›</button>
+      </div>
+      <div class="cores-linhao">
+        <p>CORES DISPONÍVEIS</p>
+        <div class="paleta">
+          <span style="background:black;" title="Preto"></span>
+        </div>
+        <div class="cores-toggle">Ver mais cores</div>
+        <div class="cores-detalhes">
+          <ul>
+            <li><span class="cor-amostra" style="background:black;"></span>Preto</li>
+          </ul>
+        </div>
+        <div class="indicadores" id="indicadoresBoddy">
+          <span class="ativo" role="button" aria-label="Foto 1"></span>
+        </div>
+      </div>
+    </div>
+    <div class="text">
+      <h2>Boddy</h2>
+      <p class="product-subtitle">Boddy</p>
+      <p>Minimalista, moderno e indispensável. Desenvolvido para realçar a silhueta com conforto e praticidade, permitindo combinações elegantes para diversas ocasiões.</p>
+      <div class="acoes-colecao">
+        <button class="specs-btn" type="button" aria-expanded="false">
+          <span>Especificações</span>
+          <span class="specs-icone">+</span>
+        </button>
+        <div class="specs-panel">
+          <div class="specs-conteudo">
+            <ul>
+              <li><strong>Composição:</strong> Poliamida com elastano</li>
+              <li><strong>Tecido:</strong> Ajustado ao corpo</li>
+              <li><strong>Caimento:</strong> Ajustado e elegante</li>
+              <li><strong>Tamanhos:</strong> P, M, G, GG</li>
+              <li><strong>Cores:</strong> Preto</li>
+            </ul>
+            <div class="specs-detalhes">
+              <h4>Detalhes da peça</h4>
+              <p>Detalhes tecido leve, respirável e confortável, ideal para uso prolongado.</p>
+            </div>
+          </div>
+        </div>
+        <a class="whatsapp-btn" href="https://wa.me/5511962556641?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20sobre%20a%20cole%C3%A7%C3%A3o%20Body">Consultar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reverse" id="skin">
+    <div class="carousel-wrapper">
+      <div class="carousel-linhao" id="carouselSkin">
+        <div class="carousel-track" id="carouselTrackSkin">
+          <img src="skin1.jpg" class="linhao-slide" alt="Coleção Skin — foto 1" draggable="false">
+          <img src="skin2.jpg" class="linhao-slide" alt="Coleção Skin — foto 2" loading="lazy" draggable="false">
+          <img src="skin3.jpg" class="linhao-slide" alt="Coleção Skin — foto 3" loading="lazy" draggable="false">
+        </div>
+        <button class="carousel-seta prev" type="button" aria-label="Foto anterior">‹</button>
+        <button class="carousel-seta next" type="button" aria-label="Próxima foto">›</button>
+      </div>
+      <div class="cores-linhao">
+        <p>CORES DISPONÍVEIS</p>
+        <div class="paleta">
+          <span style="background:#f5f5dc;" title="Bege Claro"></span>
+          <span style="background:#0D0847;" title="Azul Marinho"></span>
+          <span style="background:#8B4513;" title="Marrom"></span>
+          <span style="background:black;" title="Preto"></span>
+          <span style="background:#9A4B61;" title="Vinho"></span>
+        </div>
+        <div class="cores-toggle">Ver mais cores</div>
+        <div class="cores-detalhes">
+          <ul>
+            <li><span class="cor-amostra" style="background:#f5f5dc;"></span>Bege Claro</li>
+            <li><span class="cor-amostra" style="background:#0D0847;"></span>Azul Marinho</li>
+            <li><span class="cor-amostra" style="background:#8B4513;"></span>Marrom</li>
+            <li><span class="cor-amostra" style="background:black;"></span>Preto</li>
+            <li><span class="cor-amostra" style="background:#9A4B61;"></span>Vinho</li>
+          </ul>
+        </div>
+        <div class="indicadores" id="indicadoresSkin">
+          <span class="ativo" role="button" aria-label="Foto 1"></span>
+          <span role="button" aria-label="Foto 2"></span>
+          <span role="button" aria-label="Foto 3"></span>
+        </div>
+      </div>
+    </div>
+    <div class="text">
+      <h2>Calca Skin</h2>
+      <p class="product-subtitle">Marrante</p>
+      <p>Conforto e elegância em perfeita harmonia. A coleção Skin foi desenvolvida para oferecer um caimento impecável com toque suave e sofisticado.</p>
+      <div class="acoes-colecao">
+        <button class="specs-btn" type="button" aria-expanded="false">
+          <span>Especificações</span>
+          <span class="specs-icone">+</span>
+        </button>
+        <div class="specs-panel">
+          <div class="specs-conteudo">
+            <ul>
+              <li><strong>Composição:</strong> 100% Marrante</li>
+              <li><strong>Tecido:</strong> Suave e confortável</li>
+              <li><strong>Caimento:</strong> Ajustado e elegante</li>
+              <li><strong>Tamanhos:</strong> P 38, M 40, G 42, GG 44/46</li>
+              <li><strong>Cores:</strong> Bege Claro, Azul, Marrom, Preto, Vinho</li>
+            </ul>
+            <div class="specs-detalhes">
+              <h4>Detalhes da peça</h4>
+              <p>Detalhe bolsos no lateral, cintura alta, zíper funcional da mesma cor e bragueta.</p>
+            </div>
+          </div>
+        </div>
+        <a class="whatsapp-btn" href="https://wa.me/5511962556641?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20sobre%20a%20cole%C3%A7%C3%A3o%20Skin">Consultar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sobre" id="sobre">
+    <h2>Sobre Nós</h2>
+    <p>Na Jhanval Modas acreditamos que a elegância está nos detalhes. Trabalhamos com coleções cuidadosamente selecionadas, priorizando qualidade, conforto e sofisticação. Nossa missão é oferecer peças que valorizem a beleza, a confiança e a personalidade de cada mulher, proporcionando uma experiência única através de produtos exclusivos e atendimento dedicado.</p>
+  </section>
+
+  <div class="social">
+    <a href="https://wa.me/5511962556641?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Jhanval%20Modas" aria-label="WhatsApp">
+      <img src="Whatsapp.jpg" alt="WhatsApp">
+    </a>
+    <a href="https://www.instagram.com/jhanvalconfeccoes?igsh=ZXV2Z2U2ZWx1dWJ6" aria-label="Instagram" target="_blank" rel="noopener">
+      <img src="Instagram.png" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=100068704474638" aria-label="Facebook" target="_blank" rel="noopener">
+      <img src="Facebook.png" alt="Facebook">
+    </a>
+    <a href="https://www.tiktok.com/@jhanvalmodas?_r=1&_t=ZS-97DEEqhSilu" aria-label="TikTok" target="_blank" rel="noopener">
+      <img src="TikTok.png" alt="TikTok">
+    </a>
+  </div>
+
+  <button class="topo-btn" id="topoBtn" aria-label="Voltar ao topo">↑</button>
+
+  <footer>
+    <h3>Jhanval Modas</h3>
+    <p>Moda Feminina • Elegância • Sofisticação</p>
+    <div class="footer-links">
+      <a href="https://wa.me/5511962556641">WhatsApp</a>
+      <a href="https://www.instagram.com/jhanvalconfeccoes?igsh=ZXV2Z2U2ZWx1dWJ6" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=100068704474638" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.tiktok.com/@jhanvalmodas?_r=1&_t=ZS-97DEEqhSilu" target="_blank" rel="noopener">TikTok</a>
+    </div>
+    <div class="footer-location">
+      <p>📍 <strong>Localização:</strong> Rua Conselheiro Dantas N 421, São Paulo, SP, Brazil, CP 03032020</p>
+      <p>  <strong>Referência:</strong> Bem em frente do lado do shopping Eleve Bras Pari</p>
+      <p>📧 <strong>E-mail:</strong> jhanvalmodas@gmail.com</p>
+      <p>📱 <strong>Telefone:</strong> +55 11 96255-6641</p>
+      <p>🕐 <strong>Horário:</strong> Banca na rua presencial de domingo para segunda, de segunda para terça-feira a partir de 00:00 até 05:00 madrugada. No dia online a partir de terça-feira até domingo. Fazemos entregas todos os dias.</p>
+    </div>
+    <p>© 2022 Jhanval Modas</p>
+  </footer>
+
+  <script>
+    /* Intro Overlay Animation */
+    document.addEventListener('DOMContentLoaded', () => {
+      const body = document.body;
+      const introOverlay = document.getElementById('intro-overlay');
+
+      // Ocultar contenido principal durante intro
+      body.classList.add('intro-active');
+
+      // Desvanecer overlay después de 2 segundos
+      setTimeout(() => {
+        introOverlay.classList.add('hidden');
+
+        // Mostrar contenido principal gradualmente
+        setTimeout(() => {
+          body.classList.remove('intro-active');
+          const mainContent = body.querySelectorAll('header, .hero, .section, .sobre, .social, footer, .topo-btn');
+          mainContent.forEach((element, index) => {
+            setTimeout(() => {
+              element.classList.add('visible');
+            }, index * 100);
+          });
+        }, 1000);
+      }, 2000);
+    });
+
+    /* Acordeón de especificaciones */
+    document.querySelectorAll('.specs-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const panel = btn.nextElementSibling;
+        const conteudo = panel.querySelector('.specs-conteudo');
+        const aberto = btn.classList.toggle('aberto');
+
+        if (aberto) {
+          panel.classList.add('aberto');
+          panel.style.maxHeight = conteudo.scrollHeight + 'px';
+          btn.setAttribute('aria-expanded', 'true');
+        } else {
+          panel.classList.remove('aberto');
+          panel.style.maxHeight = '0';
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    /* Flechita desplegable de colores */
+    document.querySelectorAll('.cores-toggle').forEach((toggle) => {
+      toggle.addEventListener('click', () => {
+        const detalhes = toggle.nextElementSibling;
+        const aberto = toggle.classList.toggle('ativo');
+
+        if (aberto) {
+          detalhes.classList.add('ativo');
+          toggle.textContent = 'Ver menos cores';
+        } else {
+          detalhes.classList.remove('ativo');
+          toggle.textContent = 'Ver mais cores';
+        }
+      });
+    });
+
+    /* Menú móvil */
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+    const menuOverlay = document.querySelector('.menu-overlay');
+    const menuLinks = document.querySelectorAll('.menu a');
+
+    function fecharMenu() {
+      menu.classList.remove('open');
+      menuToggle.classList.remove('open');
+      menuOverlay.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    menuToggle.addEventListener('click', () => {
+      const aberto = menu.classList.toggle('open');
+      menuToggle.classList.toggle('open');
+      menuOverlay.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', aberto);
+    });
+
+    menuOverlay.addEventListener('click', fecharMenu);
+    menuLinks.forEach(link => link.addEventListener('click', fecharMenu));
+
+    /* Animación suave al aparecer */
+    const sections = document.querySelectorAll('.section, .sobre');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.15 });
+
+    sections.forEach((section) => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(60px)';
+      section.style.transition = 'all 1s ease';
+      observer.observe(section);
+    });
+
+    /* Botón volver arriba */
+    const topoBtn = document.getElementById('topoBtn');
+
+    window.addEventListener('scroll', () => {
+      topoBtn.classList.toggle('visible', window.scrollY > 400);
+    });
+
+    topoBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* Carruseles múltiples — función reutilizable */
+    function iniciarCarousel(carouselId, trackId, indicadoresId) {
+      const carousel = document.getElementById(carouselId);
+      const track = document.getElementById(trackId);
+      const indicadores = document.getElementById(indicadoresId);
+
+      if (!carousel || !track || !indicadores) {
+        console.error('Elementos del carrusel no encontrados:', { carouselId, trackId, indicadoresId });
+        return;
+      }
+
+      let slideAtual = 0;
+      let carouselInterval;
+      let arrastando = false;
+      let posInicioX = 0;
+      let deslocamento = 0;
+
+      const pontos = indicadores.querySelectorAll('span');
+      const totalSlides = track.querySelectorAll('.linhao-slide').length;
+      const btnPrev = carousel.querySelector('.prev');
+      const btnNext = carousel.querySelector('.next');
+
+      if (totalSlides === 0) {
+        console.warn('No se encontraron slides en el carrusel:', carouselId);
+        return;
+      }
+
+      function atualizarTrack(animar = true) {
+        track.classList.toggle('sem-transicao', !animar);
+        const offset = (-slideAtual * 100) + (deslocamento / carousel.offsetWidth * 100);
+        track.style.transform = `translateX(${offset}%)`;
+      }
+
+      function irParaSlide(index, animar = true) {
+        slideAtual = ((index % totalSlides) + totalSlides) % totalSlides;
+        deslocamento = 0;
+        pontos.forEach(ponto => ponto.classList.remove('ativo'));
+        pontos[slideAtual].classList.add('ativo');
+        atualizarTrack(animar);
+      }
+
+      function proximoSlide() {
+        irParaSlide(slideAtual + 1);
+      }
+
+      function slideAnterior() {
+        irParaSlide(slideAtual - 1);
+      }
+
+      function iniciarAutoPlay() {
+        pararAutoPlay();
+        carouselInterval = setInterval(proximoSlide, 3000);
+      }
+
+      function pararAutoPlay() {
+        clearInterval(carouselInterval);
+      }
+
+      function iniciarArraste(clientX) {
+        arrastando = true;
+        posInicioX = clientX;
+        deslocamento = 0;
+        carousel.classList.add('dragging');
+        track.classList.add('sem-transicao');
+        pararAutoPlay();
+      }
+
+      function moverArraste(clientX) {
+        if (!arrastando) return;
+        deslocamento = clientX - posInicioX;
+        atualizarTrack(false);
+      }
+
+      function finalizarArraste() {
+        if (!arrastando) return;
+        arrastando = false;
+        carousel.classList.remove('dragging');
+
+        const limite = carousel.offsetWidth * 0.18;
+        if (deslocamento < -limite) {
+          irParaSlide(slideAtual + 1);
+        } else if (deslocamento > limite) {
+          irParaSlide(slideAtual - 1);
+        } else {
+          irParaSlide(slideAtual);
+        }
+
+        iniciarAutoPlay();
+      }
+
+      pontos.forEach((ponto, index) => {
+        ponto.addEventListener('click', () => {
+          pararAutoPlay();
+          irParaSlide(index);
+          iniciarAutoPlay();
+        });
+      });
+
+      btnPrev.addEventListener('click', () => {
+        pararAutoPlay();
+        slideAnterior();
+        iniciarAutoPlay();
+      });
+
+      btnNext.addEventListener('click', () => {
+        pararAutoPlay();
+        proximoSlide();
+        iniciarAutoPlay();
+      });
+
+      carousel.addEventListener('mouseenter', pararAutoPlay);
+      carousel.addEventListener('mouseleave', () => {
+        if (!arrastando) iniciarAutoPlay();
+      });
+
+      carousel.addEventListener('mousedown', (e) => {
+        if (e.target.closest('.carousel-seta')) return;
+        e.preventDefault();
+        iniciarArraste(e.clientX);
+      });
+
+      carousel.addEventListener('touchstart', (e) => {
+        iniciarArraste(e.touches[0].clientX);
+      }, { passive: true });
+
+      carousel.addEventListener('touchmove', (e) => {
+        moverArraste(e.touches[0].clientX);
+      }, { passive: true });
+
+      carousel.addEventListener('touchend', finalizarArraste);
+
+      iniciarAutoPlay();
+    }
+
+    // Iniciar todos los carruseles
+    iniciarCarousel('carouselLinhao', 'carouselTrack', 'indicadores');
+    iniciarCarousel('carouselAlfaiataria', 'carouselTrackAlfaiataria', 'indicadoresAlfaiataria');
+    iniciarCarousel('carouselLouis', 'carouselTrackLouis', 'indicadoresLouis');
+    iniciarCarousel('carouselBody', 'carouselTrackBody', 'indicadoresBody');
+    iniciarCarousel('carouselSkin', 'carouselTrackSkin', 'indicadoresSkin');
+  </script>
+
+</body>
+</html>
